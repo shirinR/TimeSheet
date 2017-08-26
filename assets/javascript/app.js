@@ -28,15 +28,15 @@ var config = {
 
   database.ref().on('child_added', function(snapshot){
   	var data = snapshot.val();
-  	var name=data.name;
-  	var role=data.role;
-  	var start=data.start;
-  	var rate=data.rate;
+  	var name = data.name;
+  	var role = data.role;
+  	var start = data.start;
+  	var rate = data.rate;
 
-  	$("#tbody").append("<tr><td id='name'> " + name +
-        " </td><td id='email'> " + role +
-        " </td><td id='age'> " + start +
-        " </td><td id='comment'> " + rate + " </td></tr>");
+  	$("#tbody").append("<tr><td id='table-name'> " + name +
+        " </td><td id='table-role'> " + role +
+        " </td><td id='table-start'> " + start +
+        " </td><td id='table-rate'> " + rate + " </td></tr>");
 
   	console.log(data.name);
   	console.log(data.role);
