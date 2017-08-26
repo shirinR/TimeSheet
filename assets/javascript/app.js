@@ -32,25 +32,30 @@ var config = {
   	var role = data.role;
   	var start = data.start;
   	var rate = data.rate;
+  	var startFormat = "MM/DD/YY";
+  	var convertedStart = moment(start, startFormat);
 
+var months = moment().diff(moment(convertedStart),"months");
+	var billed = months * rate;
   	$("#tbody").append("<tr><td id='table-name'> " + name +
         " </td><td id='table-role'> " + role +
         " </td><td id='table-start'> " + start +
-        " </td><td id='table-rate'> " + rate + " </td></tr>");
+        " </td><td id='table-rate'> " + rate + " </td><td id='months-worked'>" + months + "</td><td id='billed'>" + billed +"</td></tr>");
 
   	console.log(data.name);
   	console.log(data.role);
   	console.log(data.start);
   	console.log(data.rate);
 
-  	var startFormat = "MM/DD/YY";
-  	var convertedStart = moment(start, startFormat);
-
+  	
   	console.log('>>>>', moment(convertedStart).toNow());
-  	console.log('+++++', moment(convertedStart).diff(moment(),"years"));
-  	console.log('+++++', moment(convertedStart).diff(moment(),"months"));
-  	console.log('+++++', moment(convertedStart).diff(moment(),"days"));
-
+  	
+  	console.log('+++++', moment().diff(moment(convertedStart),"years"));
+  	console.log('+++++', moment().diff(moment(convertedStart),"months"));
+  	console.log('+++++', moment().diff(moment(convertedStart),"days"));
+  	console.log('+++++', moment().diff(moment(convertedStart),"seconds"));
+  	
+  	
 
   }, function(errorObject){
   	console.log(errorObject);
