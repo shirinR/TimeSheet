@@ -42,6 +42,16 @@ var config = {
   	console.log(data.role);
   	console.log(data.start);
   	console.log(data.rate);
+
+  	var startFormat = "MM/DD/YY";
+  	var convertedStart = moment(start, startFormat);
+
+  	console.log('>>>>', moment(convertedStart).toNow());
+  	console.log('+++++', moment(convertedStart).diff(moment(),"years"));
+  	console.log('+++++', moment(convertedStart).diff(moment(),"months"));
+  	console.log('+++++', moment(convertedStart).diff(moment(),"days"));
+
+
   }, function(errorObject){
   	console.log(errorObject);
   });
